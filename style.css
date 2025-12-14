@@ -1,0 +1,391 @@
+
+:root {
+    --primary-color: #A0522D; 
+    --secondary-color: #F4A460; 
+    --text-color: #333;
+    --bg-color: #f8f8f8;
+    --gap: 20px;
+    
+    --desktop-filter-bg: #fff;
+    --desktop-filter-border: #e0e0e0;
+    --mock-line-color: #ccc;
+    --mock-handle-color: #3c77c0;
+    --mock-fill-color: #79a1d8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 0; 
+}
+
+
+header {
+    text-align: center;
+    padding: var(--gap) 0;
+    margin-bottom: 0; 
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 0;
+}
+
+
+.filter-controls-wrapper {
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    padding: var(--gap); 
+    background-color: var(--desktop-filter-bg); 
+    border-bottom: 1px solid var(--desktop-filter-border);
+}
+
+.filter-calories {
+    display: block; 
+    padding: 10px 0;
+    border: none;
+    text-align: center;
+    background-color: transparent;
+}
+.filter-calories h4 {
+    font-weight: bold; 
+    margin-bottom: 20px;
+}
+.filter-calories p {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 15px;
+}
+
+
+.mock-slider-wrapper {
+    position: relative;
+    padding: 0 10px; 
+    height: 15px; 
+    display: flex;
+    align-items: center;
+}
+.mock-slider-line {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    right: 10px;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(to right, 
+                var(--mock-fill-color) 0%, 
+                var(--mock-fill-color) 66.6%, 
+                var(--mock-line-color) 66.6%, 
+                var(--mock-line-color) 100% 
+            );
+    transform: translateY(-50%);
+    z-index: 1;
+}
+.mock-slider-wrapper::before { 
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10px; 
+    width: 12px; 
+    height: 12px;
+    border-radius: 50%;
+    background: var(--mock-handle-color);
+    transform: translate(-50%, -50%); 
+    z-index: 3;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.mock-slider-handle.right { 
+    position: absolute;
+    top: 50%;
+    left: calc(10px + 66.6% * (100% - 20px)); 
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--mock-handle-color); 
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+.filter-type {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px;
+    justify-content: center;
+    padding: 0;
+    background-color: transparent; 
+}
+.filter-type input[type="radio"] { display: none; }
+.filter-type label {
+    cursor: pointer;
+    padding: 8px 15px;
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: white; 
+    margin-bottom: 0; 
+}
+.filter-type input[type="radio"]:checked + label {
+    background-color: var(--primary-color);
+    color: white;
+}
+.filter-type input[value="all"] + label {
+    margin-bottom: 0; 
+}
+
+
+.boxes {
+    display: flex; 
+    flex-direction: column; 
+    gap: var(--gap);
+    padding: var(--gap); 
+}
+.full-recipe {
+    display: none; 
+}
+
+
+.card-image-wrapper {
+    width: 100%;
+    padding-bottom: 75%; 
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.card {
+    filter: grayscale(100%); 
+    transition: filter 0.3s;
+}
+
+
+footer {
+    padding: 15px var(--gap);
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+    margin-top: 0;
+    border-radius: 0;
+    font-size: 0.8em;
+}
+
+
+@media (min-width: 730px) {
+
+    .boxes {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--gap);
+        padding: var(--gap); 
+    }
+    
+
+    .filter-controls-wrapper {
+        flex-direction: row; 
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--gap);
+        gap: 20px;
+    }
+    
+    .filter-calories {
+        flex: 0 1 250px; 
+        text-align: left;
+    }
+    .filter-calories h4, .filter-calories p {
+        text-align: left;
+    }
+    
+    .filter-type {
+        flex: 1 1 auto;
+        justify-content: flex-end; 
+        gap: 8px;
+    }
+
+
+    footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    body {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0;
+        
+        display: grid; 
+        grid-template-columns: 1fr 1fr 1fr 250px; 
+        grid-template-rows: auto 1fr auto; 
+        gap: var(--gap);
+        min-height: 100vh;
+    }
+
+    header {
+        grid-column: 1 / 5; 
+        padding: var(--gap) 30px;
+        background-color: var(--bg-color); 
+        color: var(--text-color);
+        border-bottom: 1px solid var(--desktop-filter-border);
+    }
+    
+    .boxes {
+        grid-column: 1 / 4; 
+        grid-row: 2; 
+        grid-template-columns: repeat(3, 1fr); 
+        padding: 0 var(--gap); 
+    }
+    
+    .filter-controls-wrapper {
+        grid-column: 4 / 5; 
+        grid-row: 2; 
+        align-self: start; 
+        margin-right: var(--gap); 
+        
+        flex-direction: column; 
+        gap: 15px; 
+        padding: 0; 
+        background-color: transparent; 
+        border-bottom: none;
+    }
+
+    .filter-calories {
+        padding: 15px;
+        background-color: var(--desktop-filter-bg); 
+        border: 1px solid var(--desktop-filter-border);
+        border-radius: 8px;
+        max-width: none;
+    }
+    .filter-calories h4, .filter-calories p {
+        text-align: center;
+    }
+
+    .filter-type {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 0; 
+    }
+    .filter-type label {
+        border-radius: 4px; 
+        padding: 10px 15px;
+        margin-bottom: 5px; 
+    }
+    
+    .filter-type input[value="all"] + label {
+        margin-bottom: 0; 
+    }
+
+    .card {
+        display: grid;
+        grid-template-columns: 150px 1fr; 
+        box-shadow: none; 
+        border: 1px solid var(--desktop-filter-border);
+    }
+
+    .card-image-wrapper {
+        width: 150px; 
+        height: 100%; 
+        padding-bottom: 0; 
+    }
+
+    .card-image-wrapper img {
+        object-fit: cover; 
+    }
+    
+    .full-recipe {
+        display: block; 
+        font-size: 0.85em;
+        padding-top: 10px;
+        border-top: 1px dashed #ccc; 
+        margin-top: auto; 
+        color: #555;
+    }
+    
+
+    footer {
+        grid-column: 1 / 5; 
+        padding: 20px var(--gap);
+        background-color: white; 
+        color: #333;
+        border-top: 1px solid var(--desktop-filter-border);
+    }
+    footer p, footer a {
+        color: #333;
+    }
+}
+
+
+
+.filter-controls-wrapper:has(input[type="radio"]:not([value="all"]):checked) ~ .boxes .card {
+    display: none;
+}
+
+.filter-controls-wrapper:has(input[value="pie"]:checked) ~ .boxes .card[data-category="pie"] {
+    display: flex;
+    filter: grayscale(0); 
+}
+
+.filter-controls-wrapper:has(input[value="litle_pie"]:checked) ~ .boxes .card[data-category="litle_pie"] {
+    display: flex;
+    filter: grayscale(0);
+}
+
+.filter-controls-wrapper:has(input[value="roll"]:checked) ~ .boxes .card[data-category="roll"] {
+    display: flex;
+    filter: grayscale(0);
+}
+
+.filter-controls-wrapper:has(input[value="tort"]:checked) ~ .boxes .card[data-category="tort"] {
+    display: flex;
+    filter: grayscale(0);
+}
+
+.filter-controls-wrapper:has(input[value="cheese_pie"]:checked) ~ .boxes .card[data-category="cheese_pie"] {
+    display: flex;
+    filter: grayscale(0);
+}
+
+
+
+.filter-controls-wrapper:has(input[value="all"]:checked) ~ .boxes .card {
+    display: flex; 
+    filter: grayscale(0); 
+}
+
+
+@media (min-width: 1200px) {
+
+    .filter-controls-wrapper:has(input[type="radio"]:not([value="all"]):checked) ~ .boxes .card {
+        display: none;
+    }
+    
+    .filter-controls-wrapper:has(input[value="pie"]:checked) ~ .boxes .card[data-category="pie"],
+    .filter-controls-wrapper:has(input[value="litle_pie"]:checked) ~ .boxes .card[data-category="litle_pie"],
+    .filter-controls-wrapper:has(input[value="roll"]:checked) ~ .boxes .card[data-category="roll"],
+    .filter-controls-wrapper:has(input[value="tort"]:checked) ~ .boxes .card[data-category="tort"],
+    .filter-controls-wrapper:has(input[value="cheese_pie"]:checked) ~ .boxes .card[data-category="cheese_pie"],
+    .filter-controls-wrapper:has(input[value="all"]:checked) ~ .boxes .card {
+        display: grid; 
+    }
+}

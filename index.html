@@ -1,0 +1,115 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Тортики & Тістечка</title>
+    </head>
+    <body>
+        <header>
+            <h1>Тортики & Тістечка</h1>
+        </header>
+
+        <div class="filter-controls-wrapper">
+            
+            <div class="filter-type">
+                <input type="radio" name="type_of_work" id="Pie" value="pie">
+                <label for="Pie">Пиріг</label>
+                
+                <input type="radio" name="type_of_work" id="Litle_Pie" value="litle_pie">
+                <label for="Litle_Pie">Тістечко</label>
+                
+                <input type="radio" name="type_of_work" id="Roll" value="roll">
+                <label for="Roll">Рулет</label>
+                
+                <input type="radio" name="type_of_work" id="Tort" value="tort">
+                <label for="Tort">Торт</label>
+                
+                <input type="radio" name="type_of_work" id="Cheese_Pie" value="cheese_pie">
+                <label for="Cheese_Pie">Сирник</label>
+                
+                <input type="radio" name="type_of_work" id="all" value="all" checked>
+                <label for="all">Скинути фільтр</label>
+            </div>
+        </div>
+
+
+        <main class="boxes">
+            <div class="card" data-category="pie">
+                <div class="card-image-wrapper">
+                    <img src="1.png" alt="Сметановий пиріг">
+                </div>
+                <div class="card-content">
+                    <h2>Пиріг: Сметановий</h2>
+                    <div class="separator"></div>
+                    <p class="description">Класичний сметановий пиріг, ніжний та вологий. Ідеальний до чаю.</p>
+                    <p class="full-recipe">Повний рецепт: Змішати 200г сметани, 3 яйця, 150г цукру, 200г борошна. Випікати 40 хв при 180°C.</p>
+                </div>
+            </div>
+
+            <div class="card" data-category="litle_pie">
+                <div class="card-image-wrapper">
+                    <img src="2.png" alt="Шоколадне тістечко">
+                </div>
+                <div class="card-content">
+                    <h2>Тістечко: Шоколадне</h2>
+                    <div class="separator"></div>
+                    <p class="description">Насичене шоколадне тістечко "Брауні" з хрусткою скоринкою.</p>
+                    <p class="full-recipe">Повний рецепт: Розтопити 150г шоколаду з 100г масла. Додати яйця, цукор, борошно. Випікати 25 хв при 170°C.</p>
+                </div>
+            </div>
+
+            <div class="card" data-category="roll">
+                <div class="card-image-wrapper">
+                    <img src="3.png" alt="Рулет з маком">
+                </div>
+                <div class="card-content">
+                    <h2>Рулет: Маків</h2>
+                    <div class="separator"></div>
+                    <p class="description">Ароматний рулет з великою кількістю макової начинки. Справжній традиційний смак.</p>
+                    <p class="full-recipe">Повний рецепт: Замісити дріжджове тісто. Змастити маковою начинкою. Скрутити і випікати 30 хв при 180°C.</p>
+                </div>
+            </div>
+
+            <div class="card" data-category="tort">
+                <div class="card-image-wrapper">
+                    <img src="4.png" alt="Торт Наполеон">
+                </div>
+                <div class="card-content">
+                    <h2>Торт: Наполеон</h2>
+                    <div class="separator"></div>
+                    <p class="description">Багатошаровий торт з ніжним заварним кремом. Класика кондитерського мистецтва.</p>
+                    <p class="full-recipe">Повний рецепт: Приготувати листкове тісто. Спекти 10-12 коржів. Перемазати кремом і залишити на ніч.</p>
+                </div>
+            </div>
+            
+            <div class="card" data-category="cheese_pie">
+                <div class="card-image-wrapper">
+                    <img src="6.png" alt="Львівський сирник">
+                </div>
+                <div class="card-content">
+                    <h2>Сирник: Львівський</h2>
+                    <div class="separator"></div>
+                    <p class="description">Вологий, насичений сирний десерт з родзинками та шоколадною глазур'ю.</p>
+                    <p class="full-recipe">Повний рецепт: Збити сир з цукром та яйцями. Додати родзинки. Запекти. Полити глазур'ю.</p>
+                </div>
+            </div>
+            
+            <div class="card" data-category="pie">
+                <div class="card-image-wrapper">
+                    <img src="7.png" alt="Яблучний пиріг">
+                </div>
+                <div class="card-content">
+                    <h2>Пиріг: Яблучний</h2>
+                    <div class="separator"></div>
+                    <p class="description">Хрусткий яблучний пиріг з корицею. Теплий, домашній десерт.</p>
+                    <p class="full-recipe">Повний рецепт: Нарізати яблука, змішати з цукром та корицею. Накрити тістом. Випікати 45 хв.</p>
+                </div>
+            </div>
+            
+        </main>
+        
+
+    </body>
+    </html>
